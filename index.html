@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernStore - Premium Electronics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="showProducts()" style="cursor: pointer;">ModernStore</div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+                    <button class="cart-icon" id="cartIcon">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filters-grid">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                </div>
+                <select class="filter-select" id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+                <div class="price-filter">
+                    <input type="number" id="minPrice" placeholder="Min" min="0">
+                    <span>-</span>
+                    <input type="number" id="maxPrice" placeholder="Max" min="0">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <div id="sidebarCategories"></div>
+            </aside>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <div class="products-grid" id="productsGrid"></div>
+            </section>
+        </div>
+
+        <!-- Checkout Section -->
+        <section class="checkout-section" id="checkoutSection">
+            <div class="checkout-header">
+                <h2>Checkout</h2>
+                <p>Complete your order</p>
+            </div>
+
+            <div class="order-summary" id="orderSummary"></div>
+
+            <form class="checkout-form" id="checkoutForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number (Demo)</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+            </form>
+
+            <div class="checkout-actions">
+                <button class="btn btn-secondary" id="backToShop">← Back to Shop</button>
+                <button class="btn btn-primary" id="homeFromCheckout" onclick="showProducts()">🏠 Home</button>
+                <button class="btn btn-primary" id="payButton">Pay Now (Demo)</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total" id="cartTotal">Total: $0.00</div>
+            <div class="cart-actions">
+                <button class="cart-btn checkout-btn" id="proceedCheckout">Checkout</button>
+                <button class="cart-btn clear-btn" id="clearCart">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <h3>🎉 Order Placed Successfully!</h3>
+        <p>Thank you for your purchase. Your order will be processed shortly.</p>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+            <button class="btn btn-primary" onclick="closeSuccessMessage()">Continue Shopping</button>
+            <button class="btn btn-secondary" onclick="closeSuccessMessage()">🏠 Home</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationText">Item added to cart!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
